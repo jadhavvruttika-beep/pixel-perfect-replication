@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Heart, LayoutDashboard, LogOut, Menu, Package, Search, ShoppingCart, User } from "lucide-react";
 
@@ -34,7 +34,7 @@ export function SiteHeader() {
 
   const cartCount = (cart ?? []).reduce((n, r) => n + r.quantity, 0);
 
-  function submitSearch(e: React.FormEvent) {
+  function submitSearch(e: FormEvent) {
     e.preventDefault();
     void navigate({ to: "/shop", search: { q: term || undefined, category: undefined } });
   }

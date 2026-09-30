@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 
@@ -27,7 +27,7 @@ function ResetPassword() {
   const [confirm, setConfirm] = useState("");
   const [busy, setBusy] = useState(false);
 
-  async function submit(e: React.FormEvent) {
+  async function submit(e: FormEvent) {
     e.preventDefault();
     if (password.length < 6) return toast.error("Password must be at least 6 characters");
     if (password !== confirm) return toast.error("Passwords do not match");
